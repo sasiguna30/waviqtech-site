@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "html-validate:recommended"
+  ],
+  "rules": {
+    "no-trailing-whitespace": "off",
+    "prefer-native-element": "off",
+    "tel-non-breaking": "off"
+  }
+}
