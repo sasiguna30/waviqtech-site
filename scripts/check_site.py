@@ -17,7 +17,8 @@ class Page(HTMLParser):
         if tag == 'h1': self.h1 += 1
         if tag == 'title': self.in_title = True
         if tag == 'meta' and a.get('name') == 'description': self.desc.append(a.get('content', ''))
-        if tag == 'img' and not a.get('alt'): errors.append(f'{self.file}: image missing descriptive alt')
+        # Explicit alt="" is valid for decorative images such as service icons.
+        if tag == 'img' and 'alt' not in a: errors.append(f'{self.file}: image missing alt attribute')
         for key in ('href', 'src'):
             if key in a: self.refs.append(a[key])
     def handle_endtag(self, tag):
