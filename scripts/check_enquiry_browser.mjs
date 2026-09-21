@@ -77,7 +77,7 @@ try {
   assert.equal(await evaluate('window.__enquiryTest.submitted.length'),0);checks++;
   await fill();await evaluate("document.querySelector('#enquiry-form').elements.phone.value='123'");await submit();
   assert.equal(await evaluate('window.__enquiryTest.submitted.length'),0);checks++;
-  for(const mode of ['422','400','429','502','malformed','network']){
+  for(const mode of ['422','400','429','502','503','malformed','network']){
     await load(mode);await fill();await submit();
     await until("document.querySelector('#enquiry-status').dataset.state==='error'");
     assert(await evaluate("document.querySelector('#enquiry-form').elements.name.value==='Example Visitor' && document.querySelector('#enquiry-form').elements.enquiry.value==='Service and pricing question.' && !document.querySelector('#enquiry-form fieldset').disabled"));checks++;
@@ -92,7 +92,7 @@ try {
   assert(await evaluate("window.__enquiryTest.submitted[1].request_id!==window.__enquiryTest.submitted[2].request_id && document.querySelector('#enquiry-form button').disabled && document.querySelector('#enquiry-status').dataset.state!=='success'"));checks++;
   await evaluate('window.__enquiryTest.release()');
   await until("document.querySelector('#enquiry-status').dataset.state==='success'");
-  assert(await evaluate("document.querySelector('#enquiry-form').elements.enquiry.value==='' && window.__enquiryTest.submitted.length===3"));checks++;
+  assert(await evaluate("document.querySelector('#enquiry-status').textContent.includes('saved and accepted for email delivery') && document.querySelector('#enquiry-form').elements.enquiry.value==='' && window.__enquiryTest.submitted.length===3"));checks++;
   for(const width of [375,768,1440]){
     await load('success',width);await fill();
     assert(await evaluate('document.documentElement.scrollWidth<=innerWidth'));checks++;
