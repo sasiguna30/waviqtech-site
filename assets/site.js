@@ -39,7 +39,7 @@ if (selector) {
     document.querySelector('#contact-prompt').hidden = Boolean(data);
     document.querySelector('#assistant-instructions').hidden = !data || channel === 'consultation';
     document.querySelector('#automation-contact-heading').textContent =
-      channel === 'consultation' ? 'Request a Consultation' : 'Waviq Automated Assistants';
+      channel === 'consultation' ? 'Submit Request' : 'Waviq Automated Assistants';
     const recommendation = document.querySelector('#country-recommendation');
     if (recommendation) recommendation.hidden = !data;
     if (!data) return;

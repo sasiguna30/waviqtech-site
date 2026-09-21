@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no">
-<title>Contact Waviq — Request a Consultation or Quote | Waviq Technologies</title>
+<title>Contact Waviq — Submit Request | Waviq Technologies</title>
 <meta name="description" content="Contact Waviq by WhatsApp, SMS or email at info@waviqtech.com to discuss business automation and digital services in Canada, the USA or India.">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/enquiry.css">
+<script src="assets/enquiry.js" defer></script>
 <script src="assets/site.js" defer>
 </script>
 </head>
@@ -51,33 +53,48 @@
 </details>
 </article>
 <article class="card" data-contact-channel="consultation" hidden>
-<h3>USA consultation</h3>
-<p>Contact us by email to discuss your automation needs.</p>
-<a class="button" href="mailto:info@waviqtech.com?subject=Waviq%20Consultation%20Request">Request a Consultation</a>
+<h3>USA enquiries</h3>
+<p>Use the enquiry form to discuss your automation needs.</p>
+<a class="button" href="contact.html#request">Submit Request</a>
 </article>
 </div>
 <p class="note" id="assistant-instructions" hidden>Open your messaging app and send the prepared message. You must send the message before Waviq’s automated assistant can respond.</p>
 </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Request a Consultation</h2>
-<div class="two-col">
-<div class="card">
-<h3>Let’s discuss your project</h3>
-<p><a href="mailto:info@waviqtech.com?subject=Waviq%20Consultation%20Request">Request a Consultation by email</a>
-</p>
-<p><a href="mailto:info@waviqtech.com">info@waviqtech.com</a>
-</p>
-
+<section class="section" id="request">
+<div class="container enquiry-panel">
+<span id="quote" aria-hidden="true"></span>
+<h2>Submit Request</h2>
+<p>Ask about any service, pricing or general question. Fields marked “required” must be completed.</p>
+<p id="enquiry-status" class="enquiry-status" role="status" aria-live="polite">Online enquiries are temporarily unavailable. Please try again later. Our business email is info@waviqtech.com.</p>
+<noscript><p>JavaScript is required for secure online enquiries. The messaging contact options above remain available.</p></noscript>
+<form id="enquiry-form" class="enquiry-form" action="contact.html#request" method="post" aria-describedby="enquiry-status">
+<fieldset disabled>
+<legend>Your enquiry details</legend>
+<label for="enquiry-name">Name (required)</label>
+<input id="enquiry-name" name="name" type="text" autocomplete="name" required maxlength="120">
+<label for="enquiry-email">Email (required)</label>
+<input id="enquiry-email" name="email" type="email" autocomplete="email" required maxlength="254">
+<label for="enquiry-phone">Phone number (optional)</label>
+<input id="enquiry-phone" name="phone" type="tel" autocomplete="tel" maxlength="32" aria-describedby="enquiry-phone-help">
+<p id="enquiry-phone-help" class="field-help">Include your country code, beginning with +.</p>
+<label for="enquiry-country">Country (required)</label>
+<select id="enquiry-country" name="country" autocomplete="country-name" required>
+<option value="">Choose your country</option>
+<option value="India">India</option><option value="Canada">Canada</option><option value="USA">USA</option>
+</select>
+<label for="enquiry-message">Your enquiry (required)</label>
+<textarea id="enquiry-message" name="enquiry" rows="7" required maxlength="5000" aria-describedby="enquiry-message-help"></textarea>
+<p id="enquiry-message-help" class="field-help">Up to 5,000 characters. Please do not include passwords, payment details or other sensitive information.</p>
+<div class="enquiry-trap" aria-hidden="true">
+<label for="enquiry-website">Leave this field empty</label>
+<input id="enquiry-website" type="text" name="website" tabindex="-1" autocomplete="off" maxlength="200">
 </div>
-<div id="quote">
-<h2>Request a Quote</h2>
-<p>In your email, include your country (Canada, USA or India), the services you need, your current tools and your preferred timeline. Share a short description of the project so we can discuss the scope.</p><a class="button" href="mailto:info@waviqtech.com?subject=Waviq%20Quote%20Request">Request a Quote</a>
-<p class="note">Please do not send passwords, tokens, payment details or customer records. We can discuss a suitable way to share project information if needed.</p>
-</div>
-</div>
+<div id="enquiry-spam-check" class="spam-check"></div>
+<button class="button" type="submit" disabled>Send Enquiry</button>
+</fieldset>
+</form>
 </div>
 </section>
 <section class="section soft">
@@ -85,21 +102,21 @@
 <h2>Service providers &amp; quotation currencies</h2>
 <div class="cards">
 <article class="card">
-<p class="eyebrow">CAD · Request a Quote</p>
+<p class="eyebrow">CAD · Submit Request</p>
 <h3><a href="canada.html">Canada</a>
 </h3>
 <p>Waviq Technologies Inc.</p>
 <p><strong>Start with SMS</strong><br>Alternatives: Facebook Messenger and WhatsApp.</p><a class="text-link" href="canada.html">Explore Canada →</a>
 </article>
 <article class="card">
-<p class="eyebrow">USD · Request a Quote</p>
+<p class="eyebrow">USD · Submit Request</p>
 <h3><a href="usa.html">USA</a>
 </h3>
 <p>Waviq Technologies LLC.</p>
 <p><strong>Start with SMS</strong><br>Alternatives: WhatsApp and Facebook Messenger.</p><a class="text-link" href="usa.html">Explore USA →</a>
 </article>
 <article class="card">
-<p class="eyebrow">INR · Request a Quote</p>
+<p class="eyebrow">INR · Submit Request</p>
 <h3><a href="india.html">India</a>
 </h3>
 <p>Waviq Technologies Private Limited.</p>
