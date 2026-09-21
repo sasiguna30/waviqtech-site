@@ -1,4 +1,4 @@
 {
-  "enabled": false,
-  "apiBaseUrl": ""
+  "enabled": true,
+  "apiBaseUrl": "https://web-production-c1669.up.railway.app"
 }
