@@ -13,5 +13,8 @@
 .enquiry-form .spam-check{margin-top:22px;min-height:65px}
 .enquiry-status{padding:16px 20px;background:var(--soft);border-left:4px solid var(--teal);border-radius:6px;margin-bottom:24px}
 .enquiry-status[data-state="error"]{border-color:#b42318;color:#8b1c13}
+.enquiry-status[data-state="success"]{border-color:#18794e;background:#edf9f1;color:#145c3c;font-weight:650}
+.enquiry-status:focus{outline:3px solid #cf8700;outline-offset:3px}
+.enquiry-status{scroll-margin-top:110px}
 #request{scroll-margin-top:110px}
 @media(max-width:600px){.enquiry-form .button{width:100%}}

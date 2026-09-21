@@ -43,6 +43,8 @@ try {
           state.submitted.push(JSON.parse(options.body));
           if(state.hold)await new Promise(resolve=>state.release=resolve);
           if(state.mode==='network')throw Error('Offline');
+          if(state.mode==='invalid-json')return new Response('Not JSON');
+          if(state.mode==='http-error-accepted')return Response.json({accepted:true},{status:500});
           const code=Number(state.mode);
           if(code)return Response.json({accepted:false,fields:code===422?['email']:[]},{status:code});
           if(state.mode==='malformed')return Response.json({ok:true});
@@ -53,7 +55,7 @@ try {
       const append=HTMLHeadElement.prototype.append;
       HTMLHeadElement.prototype.append=function(...items){
         if(items[0]?.src?.startsWith('https://challenges.cloudflare.com/turnstile/')){
-          window.turnstile={render:(selector,opts)=>{state.captcha=opts;setTimeout(()=>opts.callback('mock-token'),0);return 'mock-widget';},reset:()=>setTimeout(()=>state.captcha.callback('mock-token'),0)};
+          window.turnstile={render:(selector,opts)=>{state.captcha=opts;setTimeout(()=>opts.callback('mock-token'),0);return 'mock-widget';},reset:()=>{document.querySelector('#enquiry-name').focus();setTimeout(()=>state.captcha.callback('mock-token'),0)}};
           setTimeout(()=>items[0].onload(),0);return;
         }
         return append.apply(this,items);
@@ -77,7 +79,7 @@ try {
   assert.equal(await evaluate('window.__enquiryTest.submitted.length'),0);checks++;
   await fill();await evaluate("document.querySelector('#enquiry-form').elements.phone.value='123'");await submit();
   assert.equal(await evaluate('window.__enquiryTest.submitted.length'),0);checks++;
-  for(const mode of ['422','400','429','502','503','malformed','network']){
+  for(const mode of ['422','400','429','502','503','malformed','invalid-json','http-error-accepted','network']){
     await load(mode);await fill();await submit();
     await until("document.querySelector('#enquiry-status').dataset.state==='error'");
     assert(await evaluate("document.querySelector('#enquiry-form').elements.name.value==='Example Visitor' && document.querySelector('#enquiry-form').elements.enquiry.value==='Service and pricing question.' && !document.querySelector('#enquiry-form fieldset').disabled"));checks++;
@@ -93,9 +95,15 @@ try {
   await evaluate('window.__enquiryTest.release()');
   await until("document.querySelector('#enquiry-status').dataset.state==='success'");
   assert(await evaluate("document.querySelector('#enquiry-status').textContent==='Your enquiry has been submitted successfully. Thank you for contacting Waviq.' && document.activeElement===document.querySelector('#enquiry-status') && document.querySelector('#enquiry-form').elements.enquiry.value==='' && window.__enquiryTest.submitted.length===3"));checks++;
+  await evaluate("window.__enquiryTest.captcha['error-callback']()");
+  await submit();
+  assert(await evaluate("document.querySelector('#enquiry-form').hidden && document.querySelector('#enquiry-status').dataset.state==='success' && window.__enquiryTest.submitted.length===3"));checks++;
   for(const width of [375,768,1440]){
     await load('success',width);await fill();
     assert(await evaluate('document.documentElement.scrollWidth<=innerWidth'));checks++;
+    await submit();
+    await until("document.querySelector('#enquiry-status').dataset.state==='success'");
+    assert(await evaluate(`(()=>{const s=document.querySelector('#enquiry-status');const r=s.getBoundingClientRect();return document.activeElement===s && r.top>=0 && r.bottom<=innerHeight && s.getAttribute('role')==='status' && s.getAttribute('aria-live')==='polite' && s.getAttribute('aria-atomic')==='true'})()`));checks++;
   }
   console.log('PASS '+checks+' enquiry browser checks: disabled configuration, validation, provider/spam/rate/network failures, retained fields, idempotent retries, duplicate prevention, accepted-only success and responsive form. No real messages sent.');
 } finally {

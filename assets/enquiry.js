@@ -10,14 +10,16 @@
   let token = '';
   let sending = false;
   let ready = false;
+  let completed = false;
   let attempt = null;
   const labels = { name: 'Name', email: 'Email', phone: 'Phone number', country: 'Country', enquiry: 'Your enquiry' };
   const unavailable = 'Online enquiries are temporarily unavailable. Please try again later. Our business email is info@waviqtech.com.';
   const show = (message, state = '') => {
+    if (completed && state !== 'success') return;
     status.textContent = message;
     status.dataset.state = state;
   };
-  const updateButton = () => { button.disabled = !ready || sending || !token; };
+  const updateButton = () => { button.disabled = completed || !ready || sending || !token; };
   const resetSpam = () => {
     token = '';
     if (widget !== undefined && window.turnstile) window.turnstile.reset(widget);
@@ -28,7 +30,7 @@
   });
   form.addEventListener('submit', async event => {
     event.preventDefault();
-    if (!ready || sending) return;
+    if (!ready || sending || completed) return;
     for (const key of ['name', 'email', 'enquiry']) {
       form.elements[key].setCustomValidity(form.elements[key].value.trim() ? '' : 'Please complete this field.');
     }
@@ -67,8 +69,10 @@
       }
       form.reset();
       attempt = null;
+      completed = true;
+      form.hidden = true;
       show('Your enquiry has been submitted successfully. Thank you for contacting Waviq.', 'success');
-      status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      status.scrollIntoView({ behavior: 'instant', block: 'center' });
       status.focus({ preventScroll: true });
     } catch {
       show('We could not confirm sending your enquiry. Your information has been kept. Check your connection and try again later.', 'error');
@@ -77,7 +81,9 @@
       sending = false;
       fields.disabled = false;
       form.removeAttribute('aria-busy');
-      resetSpam();
+      // A widget reset can move focus or overwrite the completed confirmation.
+      // Only failed submissions need another spam check for a retry.
+      if (!completed) resetSpam();
     }
   });
   async function initialise() {
