@@ -67,7 +67,9 @@
       }
       form.reset();
       attempt = null;
-      show('Your enquiry has been saved and accepted for email delivery to Waviq.', 'success');
+      show('Your enquiry has been submitted successfully. Thank you for contacting Waviq.', 'success');
+      status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      status.focus({ preventScroll: true });
     } catch {
       show('We could not confirm sending your enquiry. Your information has been kept. Check your connection and try again later.', 'error');
     } finally {
