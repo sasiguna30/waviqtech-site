@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1420" viewBox="0 0 1400 1420" role="img" aria-labelledby="title desc">
+<title id="title">How Waviq clinic appointment booking works</title><desc id="desc">Six steps from a WhatsApp hello to a booking confirmation and saved Google Sheet record. Illustrative sample data.</desc>
+<rect width="1400" height="1420" rx="32" fill="#f3f8fc"/>
+<rect width="1400" height="205" rx="32" fill="#042c53"/>
+<text x="70" y="68" fill="#52d6ab" font-size="22" font-family="Arial" font-weight="bold" letter-spacing="3">WAVIQ TECHNOLOGIES</text>
+<text x="70" y="125" fill="white" font-size="44" font-family="Arial" font-weight="bold">A WhatsApp message. An organized booking.</text>
+<text x="70" y="170" fill="#c9def2" font-size="24" font-family="Arial">Clinic appointment workflow · Illustrative demo with sample data</text>
+<rect x="60" y="245" width="620" height="320" rx="22" fill="white" stroke="#dbe4ee"/>
+<circle cx="108" cy="295" r="24" fill="#0f6e56"/>
+<text x="108" y="303" text-anchor="middle" fill="white" font-size="23" font-family="Arial">1</text>
+<text x="150" y="303" fill="#042c53" font-family="Arial" font-size="28" font-weight="bold">Say hello</text>
+<rect x="88" y="336" width="564" height="110" rx="14" fill="#e1f5ee"/>
+<text x="108" y="376" font-family="Arial" font-size="24" fill="#172b40">HI</text>
+<text x="90" y="486" font-family="Arial" font-size="22" fill="#526477">A patient messages the clinic on WhatsApp.</text>
+<rect x="720" y="245" width="620" height="320" rx="22" fill="white" stroke="#dbe4ee"/>
+<circle cx="768" cy="295" r="24" fill="#0f6e56"/>
+<text x="768" y="303" text-anchor="middle" fill="white" font-size="23" font-family="Arial">2</text>
+<text x="810" y="303" fill="#042c53" font-family="Arial" font-size="28" font-weight="bold">Business welcome</text>
+<rect x="748" y="336" width="564" height="110" rx="14" fill="#e1f5ee"/>
+<text x="768" y="376" font-family="Arial" font-size="24" fill="#172b40">Welcome to Demo Hospital</text>
+<text x="750" y="486" font-family="Arial" font-size="22" fill="#526477">The assistant identifies the clinic and</text>
+<text x="750" y="515" font-family="Arial" font-size="22" fill="#526477">offers booking options.</text>
+<rect x="60" y="595" width="620" height="320" rx="22" fill="white" stroke="#dbe4ee"/>
+<circle cx="108" cy="645" r="24" fill="#0f6e56"/>
+<text x="108" y="653" text-anchor="middle" fill="white" font-size="23" font-family="Arial">3</text>
+<text x="150" y="653" fill="#042c53" font-family="Arial" font-size="28" font-weight="bold">Choose an appointment</text>
+<rect x="88" y="686" width="564" height="110" rx="14" fill="#e1f5ee"/>
+<text x="108" y="726" font-family="Arial" font-size="24" fill="#172b40">General Medicine · Dr. Ananya Rao</text>
+<text x="90" y="836" font-family="Arial" font-size="22" fill="#526477">Select a doctor, an available date and a</text>
+<text x="90" y="865" font-family="Arial" font-size="22" fill="#526477">time.</text>
+<rect x="720" y="595" width="620" height="320" rx="22" fill="white" stroke="#dbe4ee"/>
+<circle cx="768" cy="645" r="24" fill="#0f6e56"/>
+<text x="768" y="653" text-anchor="middle" fill="white" font-size="23" font-family="Arial">4</text>
+<text x="810" y="653" fill="#042c53" font-family="Arial" font-size="28" font-weight="bold">Enter patient details</text>
+<rect x="748" y="686" width="564" height="110" rx="14" fill="#e1f5ee"/>
+<text x="768" y="726" font-family="Arial" font-size="24" fill="#172b40">Name: Sample Patient · Age: 35</text>
+<text x="750" y="836" font-family="Arial" font-size="22" fill="#526477">The patient types the details needed for the</text>
+<text x="750" y="865" font-family="Arial" font-size="22" fill="#526477">booking.</text>
+<rect x="60" y="945" width="620" height="320" rx="22" fill="white" stroke="#dbe4ee"/>
+<circle cx="108" cy="995" r="24" fill="#0f6e56"/>
+<text x="108" y="1003" text-anchor="middle" fill="white" font-size="23" font-family="Arial">5</text>
+<text x="150" y="1003" fill="#042c53" font-family="Arial" font-size="28" font-weight="bold">Receive confirmation</text>
+<rect x="88" y="1036" width="564" height="110" rx="14" fill="#e1f5ee"/>
+<text x="108" y="1076" font-family="Arial" font-size="24" fill="#172b40">12 Oct 2026 · 09:00 · APT-DEMO01</text>
+<text x="90" y="1186" font-family="Arial" font-size="22" fill="#526477">A confirmation follows a successful booking</text>
+<text x="90" y="1215" font-family="Arial" font-size="22" fill="#526477">save.</text>
+<rect x="720" y="945" width="620" height="320" rx="22" fill="white" stroke="#dbe4ee"/>
+<circle cx="768" cy="995" r="24" fill="#0f6e56"/>
+<text x="768" y="1003" text-anchor="middle" fill="white" font-size="23" font-family="Arial">6</text>
+<text x="810" y="1003" fill="#042c53" font-family="Arial" font-size="28" font-weight="bold">Organized clinic record</text>
+<rect x="748" y="1036" width="564" height="110" rx="14" fill="#edf3fc"/>
+<text x="768" y="1076" font-family="Arial" font-size="24" fill="#172b40">Appointments · Status: booked</text>
+<text x="750" y="1186" font-family="Arial" font-size="22" fill="#526477">Booking details are recorded in the clinic’s</text>
+<text x="750" y="1215" font-family="Arial" font-size="22" fill="#526477">Google Sheet.</text>
+<text x="70" y="1350" font-family="Arial" font-size="22" fill="#526477">For clinics and hospitals · Workflow configured for each business</text>
+<text x="70" y="1390" font-family="Arial" font-size="21" fill="#042c53">waviqtech.com · info@waviqtech.com</text>
+</svg>
