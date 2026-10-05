@@ -15,3 +15,10 @@
 .automation-contact label{display:block;font-weight:650;margin:0 0 8px}
 .automation-contact select{margin-bottom:24px}
 #country-recommendation{margin-top:24px}
+
+/* India social links: visible labels and keyboard-accessible icons. */
+.social-heading{font-weight:700;margin-top:24px!important;color:var(--navy)!important}
+.social-links{display:flex;flex-wrap:wrap;gap:12px}
+.social-links a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;font-size:.9rem;font-weight:650;min-height:44px}
+.social-links a:hover{background:var(--soft)}
+.social-links svg{fill:currentColor;flex-shrink:0}
